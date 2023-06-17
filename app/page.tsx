@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
 import {
   Clock,
@@ -30,6 +30,12 @@ import thumbnail5 from "../assets/thumbnail5.jpg"
 import thumbnail6 from "../assets/thumbnail6.jpg"
 import thumbnail7 from "../assets/thumbnail7.jpg"
 import thumbnail8 from "../assets/thumbnail8.jpg"
+import thumbnail9 from "../assets/thumbnail9.jpg"
+import thumbnail10 from "../assets/thumbnail10.jpg"
+import thumbnail11 from "../assets/thumbnail11.jpg"
+import thumbnail13 from "../assets/thumbnail13.png"
+import thumbnail14 from "../assets/thumbnail14.jpg"
+import thumbnail15 from "../assets/thumbnail15.jpg"
 import { Badge } from "../components/ui/badge"
 import {
   Card,
@@ -63,7 +69,7 @@ export default function IndexPage() {
 
   const toggleMute = () => {
     setIsMuted(!isMuted)
-    if (video.current?.muted) video.current.muted = !isMuted
+    if (video.current) video.current.muted = !isMuted
   }
 
   const onVideoEnded = (e: any) => {
@@ -187,57 +193,89 @@ export default function IndexPage() {
       </div>
 
       <div className="relative z-10 -mt-56 flex w-screen flex-col gap-2">
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10">
+        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Highlights
           </h3>
           <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
-            <div className="h-32 min-w-[14rem]">
-              <Image
-                src={thumbnail1}
-                alt="thumbnail"
-                className="h-full w-full rounded-sm object-cover"
-              />
-            </div>
-            <CustomCard />
-            <div className="h-32 min-w-[14rem]">
-              <Image
-                src={thumbnail3}
-                alt="thumbnail"
-                className="h-full w-full rounded-sm object-cover"
-              />
-            </div>
-            <div className="h-32 min-w-[14rem]">
-              <Image
-                src={thumbnail4}
-                alt="thumbnail"
-                className="h-full w-full rounded-sm object-cover"
-              />
-            </div>
-            <div className="h-32 min-w-[14rem]">
-              <Image
-                src={thumbnail5}
-                alt="thumbnail"
-                className="h-full w-full rounded-sm object-cover"
-              />
-            </div>
-            <CustomCard />
-            <div className="h-32 min-w-[14rem]">
-              <Image
-                src={thumbnail7}
-                alt="thumbnail"
-                className="h-full w-full rounded-sm object-cover"
-              />
-            </div>
+            <CustomCard image={thumbnail1} />
+            <CustomCard image={thumbnail2} />
+            <CustomCard image={thumbnail3} />
+            <CustomCard image={thumbnail4} />
+            <CustomCard image={thumbnail5} />
+            <CustomCard image={thumbnail6} />
+            <CustomCard image={thumbnail7} />
+          </div>
+        </div>
+        <div className="flex w-screen flex-col gap-2 overflow-x-hidden -mt-64 px-10 ">
+          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+            Something More
+          </h3>
+          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+            <CustomCard image={thumbnail8} />
+            <CustomCard image={thumbnail9} />
+            <CustomCard image={thumbnail10} />
+            <CustomCard image={thumbnail11} />
+            <CustomCard image={thumbnail15} />
+            <CustomCard image={thumbnail13} />
+            <CustomCard image={thumbnail14} />
+          </div>
+        </div>
+        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-64 ">
+          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+            Whatever
+          </h3>
+          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+            <CustomCard image={thumbnail1} />
+            <CustomCard image={thumbnail2} />
+            <CustomCard image={thumbnail3} />
+            <CustomCard image={thumbnail4} />
+            <CustomCard image={thumbnail5} />
+            <CustomCard image={thumbnail6} />
+            <CustomCard image={thumbnail7} />
+          </div>
+        </div>
+        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-64 ">
+          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+            Bengali Movies
+          </h3>
+          <div className="z-[2] -mt-80 flex  h-96 w-full gap-5 overflow-hidden py-96 ">
+            <CustomCard orientation="vertical" image={thumbnail1} />
+            <CustomCard orientation="vertical" image={thumbnail2} />
+            <CustomCard orientation="vertical" image={thumbnail3} />
+            <CustomCard orientation="vertical" image={thumbnail4} />
+            <CustomCard orientation="vertical" image={thumbnail5} />
+            <CustomCard orientation="vertical" image={thumbnail6} />
+            <CustomCard orientation="vertical" image={thumbnail7} />
+          </div>
+        </div>
+        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-44 ">
+          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+            Hindi Movies
+          </h3>
+          <div className="z-[2] -mt-80 flex  h-96 w-full gap-5 overflow-hidden py-96 ">
+            <CustomCard orientation="vertical" image={thumbnail8} />
+            <CustomCard orientation="vertical" image={thumbnail9} />
+            <CustomCard orientation="vertical" image={thumbnail10} />
+            <CustomCard orientation="vertical" image={thumbnail11} />
+            <CustomCard orientation="vertical" image={thumbnail15} />
+            <CustomCard orientation="vertical" image={thumbnail13} />
+            <CustomCard orientation="vertical" image={thumbnail14} />
+            <CustomCard orientation="vertical" image={thumbnail1} />
           </div>
         </div>
       </div>
-      <footer className="h-96"></footer>
     </ScrollArea>
   )
 }
 
-function CustomCard() {
+function CustomCard({
+  image,
+  orientation = "horizontal",
+}: {
+  image: StaticImageData
+  orientation?: string
+}) {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const video = useRef<HTMLVideoElement>(null)
 
@@ -260,71 +298,78 @@ function CustomCard() {
   }
 
   return (
-    <div className="group relative h-32 min-w-[14rem]  overflow-visible">
+    <div
+      className={`group relative ${
+        orientation === "vertical" ? "w-44 min-h-[14rem]" : "h-32 min-w-[14rem]"
+      } hover:z-10 overflow-visible`}
+    >
       <Image
-        src={thumbnail2}
+        src={image}
         alt="thumbnail"
         className="h-full w-full rounded-sm object-cover"
       />
 
-      <Card
-        onMouseEnter={onMouseOver}
-        onMouseLeave={onMouseLeave}
-        className="absolute left-[50%] top-[50%] flex h-[258%] w-[130%]  translate-x-[-50%] translate-y-[-50%] scale-[.8] items-center justify-center overflow-hidden rounded-lg bg-background/70 pb-3 opacity-0 backdrop-blur-lg transition-all duration-300  group-hover:scale-100 group-hover:opacity-100 "
-      >
-        <div className="flex w-full flex-col justify-start gap-3">
-          <div className="relative h-44 w-full">
-            <video
-              ref={video}
-              src="https://storage.googleapis.com/casparcg-test/video.mp4"
-              onEnded={onVideoEnded}
-              className="absolute inset-0 h-full w-full object-cover"
-              muted
-            />
-            <div
-              className={` absolute inset-0 ${
-                isVideoLoaded ? "opacity-0" : "opacity-100"
-              } transition-opacity duration-1000 ease-in-out`}
-            >
-              <Image
-                src={thumbnail2}
-                alt="img"
-                className="h-full w-full object-cover"
+      {orientation === "horizontal" && (
+        <Card
+          onMouseEnter={onMouseOver}
+          onMouseLeave={onMouseLeave}
+          className="absolute left-[50%] top-[50%] flex h-[258%] w-[130%]  translate-x-[-50%] translate-y-[-50%] scale-[.8] items-center justify-center overflow-hidden rounded-lg bg-background/70 pb-3 opacity-0 backdrop-blur-lg transition-all duration-500  group-hover:scale-100 group-hover:opacity-100 "
+        >
+          <div className="flex w-full flex-col justify-start gap-3">
+            <div className="relative h-44 w-full">
+              <video
+                ref={video}
+                src="https://storage.googleapis.com/casparcg-test/video.mp4"
+                onEnded={onVideoEnded}
+                className="absolute inset-0 h-full w-full object-cover"
+                muted
               />
-            </div>
-          </div>
-
-          <CardHeader className="px-4 py-0">
-            <CardTitle className="text-2xl font-bold text-primary">
-              #CSKvsGT{" "}
-              <Badge className="text-md h-4 px-3 text-sm my-auto hover:bg-primary cursor-pointer ">
-                Cricket
-              </Badge>
-            </CardTitle>
-            <CardDescription className="text-sm ">
-              Chennai made his first final appearance in the very first of 2008.
-            </CardDescription>
-          </CardHeader>
-          <CardFooter className="px-5 py-0">
-            <div className="flex w-full justify-between">
-              <Button className="w-[73%] rounded-md">
-                <span>
-                  <Play />
-                </span>{" "}
-                Watch now
-              </Button>
-              <Button
-                className="w-max rounded-md border-2 border-primary font-bold"
-                variant="outline"
+              <div
+                className={` absolute inset-0 ${
+                  isVideoLoaded ? "opacity-0" : "opacity-100"
+                } transition-opacity duration-1000 ease-in-out`}
               >
-                <span>
-                  <Heart />
-                </span>
-              </Button>
+                <Image
+                  src={image}
+                  alt="img"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
-          </CardFooter>
-        </div>
-      </Card>
+
+            <CardHeader className="px-4 py-0">
+              <CardTitle className="text-2xl font-bold text-primary">
+                #CSKvsGT{" "}
+                <Badge className="text-md h-4 px-3 text-sm my-auto hover:bg-primary cursor-pointer ">
+                  Cricket
+                </Badge>
+              </CardTitle>
+              <CardDescription className="text-sm ">
+                Chennai made his first final appearance in the very first of
+                2008.
+              </CardDescription>
+            </CardHeader>
+            <CardFooter className="px-5 py-0">
+              <div className="flex w-full justify-between">
+                <Button className="w-[73%] rounded-md">
+                  <span>
+                    <Play />
+                  </span>{" "}
+                  Watch now
+                </Button>
+                <Button
+                  className="w-max rounded-md border-2 border-primary font-bold"
+                  variant="outline"
+                >
+                  <span>
+                    <Heart />
+                  </span>
+                </Button>
+              </div>
+            </CardFooter>
+          </div>
+        </Card>
+      )}
     </div>
   )
 }

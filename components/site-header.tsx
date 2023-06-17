@@ -86,7 +86,7 @@ import { Separator } from "./ui/separator"
 
 export function SiteHeader() {
   return (
-    <header className="fixed top-0 z-10 w-full ">
+    <header className="fixed top-0 z-20 w-full ">
       <div className="absolute inset-0 -z-10 bg-background/70 backdrop-blur-lg"></div>
       <div className="flex h-20 items-center space-x-4 px-10 sm:justify-between sm:space-x-0">
         {/* <MainNav items={siteConfig.mainNav} /> */}
@@ -195,8 +195,8 @@ export const mainNav = [
 function NavLiveChildren() {
   return (
     <div className="flex w-full flex-col md:w-[550px] lg:w-max lg:max-w-[800px]">
-      <div className="flex  items-center justify-center gap-2 pt-4">
-        <h3 className="scroll-m-20 text-left text-2xl font-semibold tracking-tight text-primary">
+      <div className="flex  items-center gap-2 pt-4">
+        <h3 className="scroll-m-20 pl-4 text-left text-xl font-semibold tracking-tight text-primary">
           LIVE
         </h3>
 
@@ -229,8 +229,8 @@ function NavLiveChildren() {
 function NavHighlightsChildren() {
   return (
     <div className="flex w-full flex-col md:w-[550px] lg:w-max  lg:max-w-[800px]">
-      <div className="flex  items-center justify-center gap-2 pt-4">
-        <h3 className="scroll-m-20 text-left text-2xl font-semibold tracking-tight text-primary">
+      <div className="flex  items-center  gap-2 pt-4">
+        <h3 className="scroll-m-20 pl-4 text-left text-xl font-semibold tracking-tight text-primary">
           Highlights
         </h3>
 
@@ -281,8 +281,8 @@ function NavHighlightsChildren() {
 function NavFixturesChildren() {
   return (
     <div className="flex w-full flex-col md:w-[550px] lg:w-max  lg:max-w-[800px]">
-      <div className="flex  items-center justify-center gap-2 pt-4">
-        <h3 className="scroll-m-20 text-left text-2xl font-semibold tracking-tight text-primary">
+      <div className="flex  items-center gap-2 pt-4">
+        <h3 className="scroll-m-20 pl-4 text-left text-xl font-semibold tracking-tight text-primary">
           Fixtures
         </h3>
 
@@ -387,8 +387,8 @@ function NavFixturesChildren() {
 function NavScoreBoardChildren() {
   return (
     <div className="flex w-full flex-col md:w-[550px] lg:w-max  lg:max-w-[1000px]">
-      <div className="flex min-w-[400px] items-center justify-center gap-2 pt-4">
-        <h3 className="scroll-m-20 text-left text-2xl font-semibold tracking-tight text-primary">
+      <div className="flex min-w-[400px]  gap-2 pt-4">
+        <h3 className="scroll-m-20 pl-4 text-left text-xl font-semibold tracking-tight text-primary">
           ScoreBoard
         </h3>
 
