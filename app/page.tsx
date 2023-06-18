@@ -49,6 +49,12 @@ import { Input } from "../components/ui/input"
 import { ScrollArea } from "../components/ui/scroll-area"
 import { Separator } from "../components/ui/separator"
 
+interface RowData {
+  image: StaticImageData
+  title: string
+  desc: string
+  id: number
+}
 export default function IndexPage() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
@@ -64,7 +70,7 @@ export default function IndexPage() {
     setTimeout(() => {
       video.current?.play()
       setIsVideoLoaded(true)
-    }, 5000)
+    }, 3000)
   }, [])
 
   const toggleMute = () => {
@@ -77,6 +83,97 @@ export default function IndexPage() {
 
     setIsVideoLoaded(false)
   }
+
+  const rowDataHighlights: RowData[] = [
+    {
+      id: 1,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail1,
+    },
+    {
+      id: 2,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail2,
+    },
+    {
+      id: 3,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail3,
+    },
+    {
+      id: 4,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail4,
+    },
+    {
+      id: 5,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail5,
+    },
+    {
+      id: 6,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail6,
+    },
+    {
+      id: 7,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008. They finished third in the group, winning 8 out of 14 games.",
+      image: thumbnail7,
+    },
+  ]
+
+  const rowDataUpcoming: RowData[] = [
+    {
+      id: 8,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail8,
+    },
+    {
+      id: 9,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail9,
+    },
+    {
+      id: 10,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail10,
+    },
+    {
+      id: 11,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail11,
+    },
+    {
+      id: 12,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail13,
+    },
+    {
+      id: 13,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail14,
+    },
+    {
+      id: 14,
+      title: "CSK vs GT",
+      desc: "Chennai made his first final appearance in the very first season of 2008.",
+      image: thumbnail15,
+    },
+  ]
+
   return (
     <ScrollArea>
       <div className="z-[0] relative h-screen w-full">
@@ -149,12 +246,12 @@ export default function IndexPage() {
                 </div>
                 <Separator className="w-full bg-primary mb-2" />
                 <div
-                  className="flex  justify-between"
+                  className="flex  justify-between text-xs"
                   style={{ marginTop: ".8rem", marginBottom: ".8rem" }}
                 >
-                  <div className="flex gap-1">
+                  <div className="flex items-center gap-1">
                     <span>
-                      <Eye />
+                      <Eye className="text-xs" />
                     </span>
                     <p className="text-gray-300 ">1.2k views</p>
                   </div>
@@ -162,9 +259,9 @@ export default function IndexPage() {
                     orientation="vertical"
                     className="h-[22px] bg-primary"
                   />
-                  <div className="flex gap-1">
+                  <div className="flex items-center gap-1">
                     <span>
-                      <Clock />
+                      <Clock className="text-xs" />
                     </span>
                     <p className="text-gray-300 ">2 hours ago</p>
                   </div>
@@ -172,9 +269,9 @@ export default function IndexPage() {
                     orientation="vertical"
                     className="h-[22px] bg-primary"
                   />
-                  <div className="flex gap-1">
+                  <div className="flex items-center gap-1">
                     <span>
-                      <Swords />
+                      <Swords className="text-xs" />
                     </span>
                     <p className="text-gray-300 ">Cricket</p>
                   </div>
@@ -192,12 +289,25 @@ export default function IndexPage() {
         </div>
       </div>
 
-      <div className="relative z-10 -mt-56 flex w-screen flex-col gap-2">
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
-          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+      <div className="relative z-10 flex w-screen flex-col gap-[5.5rem] bottom-64">
+        <CustomCardRow data={rowDataHighlights} isFirst heading="Highlights" />
+        <CustomCardRow data={rowDataUpcoming} heading="Upcoming" />
+        <CustomCardRow data={rowDataHighlights} heading="Football" />
+        <CustomCardRow
+          data={rowDataHighlights}
+          orientation="vertical"
+          heading="Top 7 Bengali Movies"
+        />
+        <CustomCardRow
+          data={rowDataUpcoming}
+          orientation="vertical"
+          heading="Because You Watched Movies"
+        />
+        {/* <div className="flex w-screen flex-col gap-2 -mt-36  overflow-x-hidden px-10 hover:z-10">
+          <h3 className="relative z-[1] text-xl relative top-24 font-bold text-primary">
             Highlights
           </h3>
-          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+          <div className="z-[2] flex  min-h-[8rem] w-full gap-3 py-24 overflow-hidden  ">
             <CustomCard image={thumbnail1} />
             <CustomCard image={thumbnail2} />
             <CustomCard image={thumbnail3} />
@@ -206,12 +316,12 @@ export default function IndexPage() {
             <CustomCard image={thumbnail6} />
             <CustomCard image={thumbnail7} />
           </div>
-        </div>
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden -mt-64 px-10 ">
+        </div> */}
+        {/* <div className="mt-[-26rem] flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Something More
           </h3>
-          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+          <div className="z-[2]  flex  min-h-[8rem] w-full gap-3 overflow-hidden  ">
             <CustomCard image={thumbnail8} />
             <CustomCard image={thumbnail9} />
             <CustomCard image={thumbnail10} />
@@ -220,12 +330,12 @@ export default function IndexPage() {
             <CustomCard image={thumbnail13} />
             <CustomCard image={thumbnail14} />
           </div>
-        </div>
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-64 ">
+        </div> */}
+        {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Whatever
           </h3>
-          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+          <div className="z-[2] -mt-80 flex w-full min-h-[8rem] w-full gap-3 overflow-hidden py-96 ">
             <CustomCard image={thumbnail1} />
             <CustomCard image={thumbnail2} />
             <CustomCard image={thumbnail3} />
@@ -234,8 +344,8 @@ export default function IndexPage() {
             <CustomCard image={thumbnail6} />
             <CustomCard image={thumbnail7} />
           </div>
-        </div>
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-64 ">
+        </div> */}
+        {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Bengali Movies
           </h3>
@@ -248,8 +358,8 @@ export default function IndexPage() {
             <CustomCard orientation="vertical" image={thumbnail6} />
             <CustomCard orientation="vertical" image={thumbnail7} />
           </div>
-        </div>
-        <div className="flex w-screen flex-col gap-2 overflow-x-hidden px-10 -mt-44 ">
+        </div> */}
+        {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Hindi Movies
           </h3>
@@ -263,18 +373,72 @@ export default function IndexPage() {
             <CustomCard orientation="vertical" image={thumbnail14} />
             <CustomCard orientation="vertical" image={thumbnail1} />
           </div>
-        </div>
+        </div> */}
+        {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
+            New Arrivals
+          </h3>
+          <div className="z-[2] -mt-80 flex  h-96 w-full gap-3 overflow-hidden py-96 ">
+            <CustomCard image={thumbnail1} />
+            <CustomCard image={thumbnail2} />
+            <CustomCard image={thumbnail3} />
+            <CustomCard image={thumbnail4} />
+            <CustomCard image={thumbnail5} />
+            <CustomCard image={thumbnail6} />
+            <CustomCard image={thumbnail7} />
+          </div>
+        </div> */}
       </div>
     </ScrollArea>
+  )
+}
+
+function CustomCardRow({
+  orientation = "horizontal",
+  data,
+  heading,
+  isFirst = false,
+}: {
+  orientation?: string
+  heading: string
+  data: RowData[]
+  isFirst?: boolean
+}) {
+  return (
+    <div
+      className={`${
+        !isFirst ? "-mt-44" : ""
+      } relative z-0 flex w-screen  flex-col gap-2 overflow-x-hidden px-10 hover:z-10`}
+    >
+      <h3 className="absolute top-12 text-xl font-bold text-primary">
+        {heading}
+      </h3>
+
+      <div className="z-[2] flex  min-h-[8rem] w-full gap-3 overflow-hidden py-[5.2rem]  ">
+        {data.map((item) => (
+          <CustomCard
+            key={item.id}
+            image={item.image}
+            title={item.title}
+            desc={item.desc}
+            orientation={orientation}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
 
 function CustomCard({
   image,
   orientation = "horizontal",
+  title,
+  desc,
 }: {
   image: StaticImageData
   orientation?: string
+  title: string
+  desc: string
 }) {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const video = useRef<HTMLVideoElement>(null)
@@ -300,8 +464,8 @@ function CustomCard({
   return (
     <div
       className={`group relative ${
-        orientation === "vertical" ? "w-44 min-h-[14rem]" : "h-32 min-w-[14rem]"
-      } hover:z-10 overflow-visible`}
+        orientation === "vertical" ? "min-h-[14rem] w-44" : "h-32 min-w-[14rem]"
+      } overflow-visible hover:z-10`}
     >
       <Image
         src={image}
@@ -313,7 +477,7 @@ function CustomCard({
         <Card
           onMouseEnter={onMouseOver}
           onMouseLeave={onMouseLeave}
-          className="absolute left-[50%] top-[50%] flex h-[258%] w-[130%]  translate-x-[-50%] translate-y-[-50%] scale-[.8] items-center justify-center overflow-hidden rounded-lg bg-background/70 pb-3 opacity-0 backdrop-blur-lg transition-all duration-500  group-hover:scale-100 group-hover:opacity-100 "
+          className="absolute left-[50%] top-[50%] flex h-[258%] w-[130%]  translate-x-[-50%] translate-y-[-50%] scale-[.6] items-center justify-center overflow-hidden rounded-lg bg-background/60 pb-3 opacity-0 backdrop-blur-lg transition-all duration-500 group-hover:scale-90 group-hover:opacity-100"
         >
           <div className="flex w-full flex-col justify-start gap-3">
             <div className="relative h-44 w-full">
@@ -339,14 +503,13 @@ function CustomCard({
 
             <CardHeader className="px-4 py-0">
               <CardTitle className="text-2xl font-bold text-primary">
-                #CSKvsGT{" "}
+                {title}
                 <Badge className="text-md h-4 px-3 text-sm my-auto hover:bg-primary cursor-pointer ">
                   Cricket
                 </Badge>
               </CardTitle>
-              <CardDescription className="text-sm ">
-                Chennai made his first final appearance in the very first of
-                2008.
+              <CardDescription className="line-clamp-2 max-h-12 w-full overflow-hidden  text-sm">
+                {desc}
               </CardDescription>
             </CardHeader>
             <CardFooter className="px-5 py-0">
