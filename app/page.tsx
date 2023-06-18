@@ -36,6 +36,7 @@ import thumbnail11 from "../assets/thumbnail11.jpg"
 import thumbnail13 from "../assets/thumbnail13.png"
 import thumbnail14 from "../assets/thumbnail14.jpg"
 import thumbnail15 from "../assets/thumbnail15.jpg"
+import { SiteHeader } from "../components/site-header"
 import { Badge } from "../components/ui/badge"
 import {
   Card,
@@ -175,135 +176,144 @@ export default function IndexPage() {
   ]
 
   return (
-    <ScrollArea>
-      <div className="z-[0] relative h-screen w-full">
-        <video
-          ref={video}
-          src="https://storage.googleapis.com/casparcg-test/video.mp4"
-          onEnded={onVideoEnded}
-          onLoad={onVideoLoaded}
-          className="absolute inset-0 h-full w-full object-cover"
-          muted
-        />
-        <div
-          className={` absolute inset-0 ${
-            isVideoLoaded ? "opacity-0" : "opacity-100"
-          } transition-opacity duration-1000 ease-in-out`}
-        >
-          <Image
-            src={image}
-            alt="img"
-            className="h-screen w-full object-cover"
+    <>
+      <SiteHeader />
+
+      <ScrollArea>
+        <div className="z-[0] relative h-screen w-full">
+          <video
+            ref={video}
+            src="https://storage.googleapis.com/casparcg-test/video.mp4"
+            onEnded={onVideoEnded}
+            onLoad={onVideoLoaded}
+            className="absolute inset-0 h-full w-full object-cover"
+            muted
           />
-        </div>
-        <div className="gradient-dark absolute inset-0"></div>
-        <div className="absolute flex h-full w-full items-center justify-start p-10">
-          <div className="flex w-full items-end  justify-between">
-            <Card
-              className={`h-[60%] w-[25%]  border-none bg-background/0 shadow-none ${
-                isVideoLoaded ? "opacity-75" : "opacity-100"
-              } transition-opacity duration-500 ease-in-out hover:opacity-100`}
-            >
-              <div className="flex justify-start pt-5 ">
-                <Image
-                  src={ipllogo}
-                  alt="logo"
-                  className="w-52 rounded-lg object-cover"
-                />
-              </div>
-              <CardHeader className="p-0">
-                <CardTitle className="flex gap-3 items-center">
-                  <p className="pt-2 text-start text-5xl font-bold">#CSKvsGT</p>{" "}
-                  <Badge className="text-md h-8 px-5 bg-red-500 text-primary">
-                    LIVE
-                  </Badge>
-                </CardTitle>
-                <CardDescription className="pt-2 text-md text-primary">
-                  Chennai made his first final appearance in the very first
-                  season of 2008. They finished third in the group, winning 8
-                  out of 14 games.
-                </CardDescription>
-                {/* <Separator className="w-full bg-primary" /> */}
-                <div
-                  className="flex gap-3 "
-                  style={{ marginTop: ".8rem", marginBottom: ".8rem" }}
-                >
-                  <Button className="rounded-md w-52">
-                    <span>
-                      <Play />
-                    </span>{" "}
-                    Watch now
-                  </Button>
-                  <Button
-                    className="rounded-md border-2 border-primary font-bold w-40"
-                    variant="outline"
+          <div
+            className={` absolute inset-0 ${
+              isVideoLoaded ? "opacity-0" : "opacity-100"
+            } transition-opacity duration-1000 ease-in-out`}
+          >
+            <Image
+              src={image}
+              alt="img"
+              className="h-screen w-full object-cover"
+            />
+          </div>
+          <div className="gradient-dark absolute inset-0"></div>
+          <div className="absolute flex h-full w-full items-center justify-start p-10">
+            <div className="flex w-full items-end  justify-between">
+              <Card
+                className={`h-[60%] w-[25%]  border-none bg-background/0 shadow-none ${
+                  isVideoLoaded ? "opacity-75" : "opacity-100"
+                } transition-opacity duration-500 ease-in-out hover:opacity-100`}
+              >
+                <div className="flex justify-start pt-5 ">
+                  <Image
+                    src={ipllogo}
+                    alt="logo"
+                    className="w-52 rounded-lg object-cover"
+                  />
+                </div>
+                <CardHeader className="p-0">
+                  <CardTitle className="flex gap-3 items-center">
+                    <p className="pt-2 text-start text-5xl font-bold">
+                      #CSKvsGT
+                    </p>{" "}
+                    <Badge className="text-md h-8 px-5 bg-red-500 text-primary">
+                      LIVE
+                    </Badge>
+                  </CardTitle>
+                  <CardDescription className="pt-2 text-md text-primary">
+                    Chennai made his first final appearance in the very first
+                    season of 2008. They finished third in the group, winning 8
+                    out of 14 games.
+                  </CardDescription>
+                  {/* <Separator className="w-full bg-primary" /> */}
+                  <div
+                    className="flex gap-3 "
+                    style={{ marginTop: ".8rem", marginBottom: ".8rem" }}
                   >
-                    <span>
-                      <Share2 />
-                    </span>{" "}
-                    Share
-                  </Button>
-                </div>
-                <Separator className="w-full bg-primary mb-2" />
-                <div
-                  className="flex  justify-between text-xs"
-                  style={{ marginTop: ".8rem", marginBottom: ".8rem" }}
-                >
-                  <div className="flex items-center gap-1">
-                    <span>
-                      <Eye className="text-xs" />
-                    </span>
-                    <p className="text-gray-300 ">1.2k views</p>
+                    <Button className="rounded-md w-52">
+                      <span>
+                        <Play />
+                      </span>{" "}
+                      Watch now
+                    </Button>
+                    <Button
+                      className="rounded-md border-2 border-primary font-bold w-40"
+                      variant="outline"
+                    >
+                      <span>
+                        <Share2 />
+                      </span>{" "}
+                      Share
+                    </Button>
                   </div>
-                  <Separator
-                    orientation="vertical"
-                    className="h-[22px] bg-primary"
-                  />
-                  <div className="flex items-center gap-1">
-                    <span>
-                      <Clock className="text-xs" />
-                    </span>
-                    <p className="text-gray-300 ">2 hours ago</p>
+                  <Separator className="w-full bg-primary mb-2" />
+                  <div
+                    className="flex  justify-between text-xs"
+                    style={{ marginTop: ".8rem", marginBottom: ".8rem" }}
+                  >
+                    <div className="flex items-center gap-1">
+                      <span>
+                        <Eye className="text-xs" />
+                      </span>
+                      <p className="text-gray-300 ">1.2k views</p>
+                    </div>
+                    <Separator
+                      orientation="vertical"
+                      className="h-[22px] bg-primary"
+                    />
+                    <div className="flex items-center gap-1">
+                      <span>
+                        <Clock className="text-xs" />
+                      </span>
+                      <p className="text-gray-300 ">2 hours ago</p>
+                    </div>
+                    <Separator
+                      orientation="vertical"
+                      className="h-[22px] bg-primary"
+                    />
+                    <div className="flex items-center gap-1">
+                      <span>
+                        <Swords className="text-xs" />
+                      </span>
+                      <p className="text-gray-300 ">Cricket</p>
+                    </div>
                   </div>
-                  <Separator
-                    orientation="vertical"
-                    className="h-[22px] bg-primary"
-                  />
-                  <div className="flex items-center gap-1">
-                    <span>
-                      <Swords className="text-xs" />
-                    </span>
-                    <p className="text-gray-300 ">Cricket</p>
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-            <Button
-              className="h-16 w-16 rounded-full border-primary"
-              variant="outline"
-              onClick={toggleMute}
-            >
-              {isMuted ? <VolumeX /> : <Volume2 />}
-            </Button>
+                </CardHeader>
+              </Card>
+              <Button
+                className="h-16 w-16 rounded-full border-primary"
+                variant="outline"
+                onClick={toggleMute}
+              >
+                {isMuted ? <VolumeX /> : <Volume2 />}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="relative z-10 flex w-screen flex-col gap-[5.5rem] bottom-64">
-        <CustomCardRow data={rowDataHighlights} isFirst heading="Highlights" />
-        <CustomCardRow data={rowDataUpcoming} heading="Upcoming" />
-        <CustomCardRow data={rowDataHighlights} heading="Football" />
-        <CustomCardRow
-          data={rowDataHighlights}
-          orientation="vertical"
-          heading="Top 7 Bengali Movies"
-        />
-        <CustomCardRow
-          data={rowDataUpcoming}
-          orientation="vertical"
-          heading="Because You Watched Movies"
-        />
-        {/* <div className="flex w-screen flex-col gap-2 -mt-36  overflow-x-hidden px-10 hover:z-10">
+        <div className="relative z-10 flex w-screen flex-col gap-[5.5rem] bottom-64">
+          <CustomCardRow
+            data={rowDataHighlights}
+            isFirst
+            heading="Highlights"
+          />
+          <CustomCardRow data={rowDataUpcoming} heading="Upcoming" />
+          <CustomCardRow data={rowDataHighlights} heading="Football" />
+          <CustomCardRow
+            data={rowDataHighlights}
+            orientation="vertical"
+            heading="Top 7 Bengali Movies"
+          />
+          <CustomCardRow
+            data={rowDataUpcoming}
+            orientation="vertical"
+            heading="Because You Watched Movies"
+          />
+          {/* <div className="flex w-screen flex-col gap-2 -mt-36  overflow-x-hidden px-10 hover:z-10">
           <h3 className="relative z-[1] text-xl relative top-24 font-bold text-primary">
             Highlights
           </h3>
@@ -317,7 +327,7 @@ export default function IndexPage() {
             <CustomCard image={thumbnail7} />
           </div>
         </div> */}
-        {/* <div className="mt-[-26rem] flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          {/* <div className="mt-[-26rem] flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Something More
           </h3>
@@ -331,7 +341,7 @@ export default function IndexPage() {
             <CustomCard image={thumbnail14} />
           </div>
         </div> */}
-        {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Whatever
           </h3>
@@ -345,7 +355,7 @@ export default function IndexPage() {
             <CustomCard image={thumbnail7} />
           </div>
         </div> */}
-        {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          {/* <div className="-mt-64 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Bengali Movies
           </h3>
@@ -359,7 +369,7 @@ export default function IndexPage() {
             <CustomCard orientation="vertical" image={thumbnail7} />
           </div>
         </div> */}
-        {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             Hindi Movies
           </h3>
@@ -374,7 +384,7 @@ export default function IndexPage() {
             <CustomCard orientation="vertical" image={thumbnail1} />
           </div>
         </div> */}
-        {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
+          {/* <div className="-mt-44 flex w-screen flex-col gap-2 overflow-x-hidden px-10 ">
           <h3 className="relative top-[3rem] z-[1] text-xl font-bold text-primary">
             New Arrivals
           </h3>
@@ -388,8 +398,9 @@ export default function IndexPage() {
             <CustomCard image={thumbnail7} />
           </div>
         </div> */}
-      </div>
-    </ScrollArea>
+        </div>
+      </ScrollArea>
+    </>
   )
 }
 
