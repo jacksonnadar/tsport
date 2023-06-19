@@ -34,15 +34,15 @@ import { Separator } from "../../components/ui/separator"
 export default function IndexPage() {
   return (
     <div className="relative h-screen w-screen overflow-hidden ">
-      <Image src={loginimg} alt="" className="object-cover w-full h-full" />
+      <Image src={loginimg} alt="" className="h-full w-full object-cover" />
       <div className="absolute inset-0 flex items-center justify-center bg-background/90 backdrop-blur-lg">
         <Card className="w-[60vw] overflow-hidden rounded-2xl">
-          <div className="flex flex-grow">
-            <div className="w-[40%] min-h-full  overflow-hidden relative">
-              <div className="absolute gradientr-dark inset-0 z-10"></div>
+          <div className="flex grow">
+            <div className="relative min-h-full  w-[40%] overflow-hidden">
+              <div className="gradientr-dark absolute inset-0 z-10"></div>
 
-              <div className="flex flex-col w-[200%] h-full justify-between ">
-                <div className="flex gap-3 animate-back-and-forth">
+              <div className="flex h-full w-[200%] flex-col justify-between ">
+                <div className="animate-back-and-forth flex gap-3">
                   <div className="group relative min-h-[10rem] w-[7rem] ">
                     <Image
                       src={thumbnail1}
@@ -86,7 +86,7 @@ export default function IndexPage() {
                     />
                   </div>
                 </div>
-                <div className="flex gap-3 animate-back-and-forth-reverse">
+                <div className="animate-back-and-forth-reverse flex gap-3">
                   <div className="group relative min-h-[10rem] w-[7rem] ">
                     <Image
                       src={thumbnail7}
@@ -130,7 +130,7 @@ export default function IndexPage() {
                     />
                   </div>
                 </div>
-                <div className="flex gap-3 animate-back-and-forth">
+                <div className="animate-back-and-forth flex gap-3">
                   <div className="group relative min-h-[10rem] w-[7rem] ">
                     <Image
                       src={thumbnail14}
@@ -176,44 +176,44 @@ export default function IndexPage() {
                 </div>
               </div>
             </div>
-            <div className="flex-grow p-14 py-20 ">
+            <div className="grow p-14 py-20 ">
               <CardHeader className="p-0 pb-3">
-                <Image src={logo} alt="logo" className="w-20 -mt-3 mb-2" />
-                <CardTitle className="text-2xl font-medium mb-5 text-muted-foreground">
+                <Image src={logo} alt="logo" className="-mt-3 mb-2 w-20" />
+                <CardTitle className="mb-5 text-2xl font-medium text-muted-foreground">
                   Login Or Sign Up To Continue
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col p-0">
-                <div className="flex gap-5 w-full ">
+                <div className="flex w-full gap-5 ">
                   <Input
                     className=" w-24 border-2 border-primary px-5 py-7 text-lg"
                     disabled
                     value="+88"
                   />
                   <Input
-                    className=" border-2 w-auto border-muted-foreground flex-grow px-5 py-7 text-lg"
+                    className=" w-auto grow border-2 border-muted-foreground px-5 py-7 text-lg"
                     placeholder="Enter Your Phone Number"
                   />
                 </div>
-                <CardDescription className="text-muted-foreground text-xs pt-3">
-                  *By continuing you are agreeing to our Terms of Service and
+                <CardDescription className="pt-3 text-xs text-muted-foreground">
+                  *By continuing you are agreeing t o our Terms of Service and
                 </CardDescription>
-                <Separator className="my-10 w-[70%] mx-auto" />
+                <Separator className="mx-auto my-10 w-[70%]" />
 
-                <div className="flex flex-col gap-5 justify-start">
-                  <Button className="mx-auto bg-primary h-14 py-5 w-full rounded-lg text-lg">
+                <div className="flex flex-col justify-start gap-5">
+                  <Button className="mx-auto h-14 w-full rounded-lg bg-primary py-5 text-lg">
                     <span>
-                      <Image src={googleLogo} alt="" className="w-6 h-6" />
+                      <Image src={googleLogo} alt="" className="h-6 w-6" />
                     </span>
                     Google
                   </Button>
-                  <Button className="w-full mx-auto bg-primary h-14  py-5 rounded-lg text-lg">
+                  <Button className="mx-auto h-14 w-full rounded-lg  bg-primary py-5 text-lg">
                     <span>
-                      <Image src={facebookLogo} alt="" className="w-6 h-6" />
+                      <Image src={facebookLogo} alt="" className="h-6 w-6" />
                     </span>
                     Facebook
                   </Button>
-                  <CardDescription className="text-muted-foreground text-md pt-3 text-center">
+                  <CardDescription className="text-md pt-3 text-center text-muted-foreground">
                     Need help logging in?{" "}
                     <Link href="/">
                       <span className="text-primary">Click here</span>

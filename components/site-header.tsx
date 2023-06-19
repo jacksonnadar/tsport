@@ -462,7 +462,7 @@ function NavScoreBoardChildren() {
             </div>
           </CardContent>
           <CardFooter>
-            <CardDescription className="text-center w-full text-md">
+            <CardDescription className="text-md w-full text-center">
               Ban trail Aus by 55 runs
             </CardDescription>
           </CardFooter>
@@ -537,7 +537,7 @@ function NavScoreBoardChildren() {
             </div>
           </CardContent>
           <CardFooter>
-            <CardDescription className="text-center w-full text-md">
+            <CardDescription className="text-md w-full text-center">
               IND trail Aus by 22 runs
             </CardDescription>
           </CardFooter>
@@ -717,11 +717,13 @@ function CustomUserDropDown() {
           <span>API</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-        </DropdownMenuItem>
+        <Link href="/login">
+          <DropdownMenuItem>
+            <LogOut className="mr-2 inline h-4 w-4" />
+            <span>Log out</span>
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
   )
